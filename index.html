@@ -21,10 +21,19 @@
 		.flip-clock-divider.days .flip-clock-label{
 			left: 10px;
 		}
+		html{
+			height:100%;
+			width:100%;
+			margin:0;
+			padding:0;
+		}
 		body{
 			 background: url(./bg.jpg) repeat;
 			 margin:0;
 			 overflow: hidden;
+			 height:100%;
+			 width:100%;
+			 padding:0;
 		}
 		.together{
 			color:white;
@@ -36,21 +45,19 @@
 			position: absolute;
 			color: #eeeeee;
 		}
-		.lili{
+		#lili{
 			background: url(./lili.png) no-repeat;
-			height: 100%;
-			width: 100%;
 			position: absolute;
 			top: 0;
 			left: 0;
 			opacity: 0.5;
-			background-size: cover;
+			background-size: contain;
 		}
 		</style>
 	</head>
 	
 	<body>
-		<div class="lili"></div>
+		<div id="lili"></div>
 		<div class="together"><div style="width:780px;margin:0 auto;">We have been together for</div></div>
 		<div class="flipclock" style="width:780px;margin:0 auto;height:150px;top:50%;margin-top:-75px;"></div>
 
@@ -83,6 +90,10 @@
 			var clock;
 
 			$(document).ready(function() {
+				var height = $(window).height();
+				var width = height / 0.75;
+				$("#lili").css('height', height + 'px');
+				$("#lili").css('width', width + 'px');
 
 				// Grab the current date
 				var currentDate = new Date();

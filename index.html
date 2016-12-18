@@ -1,13 +1,81 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="compiled/flipclock.css">
+		<link rel="stylesheet" href="compiled/applewatch.css">
 
 		<script src="jquery.min.js"></script>
 
 		<script src="compiled/flipclock.js"></script>	
+
+		<style>
+		.flip-clock-wrapper ul{
+			width: 70px;
+		}
+		.flip-clock-divider .flip-clock-label{
+			left: 30px;
+			font-size: 30px;
+			right: auto;
+			color: #dddddd;
+		}
+		.flip-clock-divider.days .flip-clock-label{
+			left: 10px;
+		}
+		body{
+			 background: url(./bg.jpg) repeat;
+			 margin:0;
+		}
+		.together{
+			color:white;
+			top:50%;
+			margin:0 auto;
+			margin-top: -200px;
+			width:100%;
+			font: normal 40px "Helvetica Neue", Helvetica, sans-serif;
+			position: absolute;
+			color: #dddddd;
+		}
+		.lili{
+			background: url(./lili.png) no-repeat;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			opacity: 0.5;
+			background-size: cover;
+		}
+		</style>
 	</head>
+	
 	<body>
-		<div class="clock" style="width:700px;margin:0 auto;height:150px;top:50%;margin-top:-75px;"></div>
+		<div class="lili"></div>
+		<div class="together"><div style="width:780px;margin:0 auto;">We have been together for</div></div>
+		<div class="flipclock" style="width:780px;margin:0 auto;height:150px;top:50%;margin-top:-75px;"></div>
+
+		<div class="applewatch" style="width:700px;height:700px;margin:-80px auto;position:relative">
+		<div class="fill">
+		  <div class="reference"></div>
+		  <div class="clock" id="utility-clock">
+		    <div class="centre">
+		      <div class="dynamic"></div>
+		      <div class="expand round circle-1"></div>
+		      <div class="anchor hour">
+		        <div class="element thin-hand"></div>
+		        <div class="element fat-hand"></div>
+		      </div>
+		      <div class="anchor minute">
+		        <div class="element thin-hand"></div>
+		        <div class="element fat-hand minute-hand"></div>
+		      </div>
+		      <div class="anchor second">
+		        <div class="element second-hand"></div>
+		      </div>
+		      <div class="expand round circle-2"></div>
+		      <div class="expand round circle-3"></div>
+		    </div>
+		  </div>
+		</div>
+	</div>
 		
 		<script type="text/javascript">
 			var clock;
@@ -24,11 +92,13 @@
 				var diff = currentDate.getTime() / 1000 - pastDate.getTime() / 1000;
 
 				// Instantiate a coutdown FlipClock
-				clock = $('.clock').FlipClock(diff, {
+				clock = $('.flipclock').FlipClock(diff, {
 					clockFace: 'DailyCounter'
 				});
 			});
 		</script>
+
+		<script src="compiled/applewatch.js"></script>
 		
 	</body>
 </html>

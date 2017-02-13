@@ -84,7 +84,7 @@
 		    </div>
 		  </div>
 		</div>
-			<audio src="来.mp3" autoplay="true" preload loop="loop"></audio>
+			<audio id="lai" src="来.mp3" autoplay="true" preload loop="loop"></audio>
 	</div>
 		
 		<script type="text/javascript">
@@ -109,6 +109,18 @@
 				clock = $('.flipclock').FlipClock(diff, {
 					clockFace: 'DailyCounter'
 				});
+				
+				function audioAutoPlay(id){  
+				    var audio = document.getElementById(id);  
+				    audio.play();  
+				    document.addEventListener("WeixinJSBridgeReady", function () {  
+					    audio.play();  
+				    }, false);  
+				    document.addEventListener('YixinJSBridgeReady', function() {  
+					audio.play();  
+				    }, false);  
+				}  
+				audioAutoPlay('lai');  
 			});
 		</script>
 
